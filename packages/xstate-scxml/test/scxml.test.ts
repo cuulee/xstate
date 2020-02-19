@@ -1,17 +1,19 @@
-import { Machine, State, interpret } from 'xstate';
-import { xml2js } from 'xml-js';
-import { transitionToSCXML, toSCXML } from '../src';
-import { toMachine } from 'xstate/lib/scxml';
-import { pathsToStateValue } from 'xstate/lib/utils';
-import { SimulatedClock } from 'xstate/lib/SimulatedClock';
-import * as fs from 'fs';
 import {
+  Machine,
+  State,
+  interpret,
+  MachineNode,
+  SimulatedClock,
+  toMachine,
+  pathsToStateValue,
   getStateNodeById,
   resolveStateValue,
   getInitialState,
   getStateNodes
-} from 'xstate/lib/stateUtils';
-import { MachineNode } from 'xstate/lib/MachineNode';
+} from 'xstate';
+import { xml2js } from 'xml-js';
+import { transitionToSCXML, toSCXML } from '../src';
+import * as fs from 'fs';
 
 interface SCIONTest {
   initialConfiguration: string[];
